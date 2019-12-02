@@ -40,18 +40,6 @@ showTimes = () => {
   return result;
 }
 
-    .get('/customers', (req, res) => {
-    
 
-      connection.query('SELECT * FROM Customer ', req.params.countryCode, function (error, results, fields) {
-      if (error) throw error;
-      //console.log('The solution is: ', results); ** This displays to the page instead of console **
-      //data = results[0];
-      res.json(results);
-//       connection.end();
-    });
-
-    
-})
 
 
