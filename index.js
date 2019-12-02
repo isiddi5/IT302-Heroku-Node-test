@@ -2,7 +2,7 @@ const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const { Pool } = require('pg');
+const {Pool} = require('pg')
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
@@ -27,6 +27,11 @@ express()
     }
   })
   .get('/times', (req, res) => res.send(showTimes()))
+  .get('/create_accoutns',)
+
+    let client = await pool.connect()
+    let result = await client.query('SELECT * FROM account_tableshehe');
+
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 showTimes = () => {
@@ -36,4 +41,27 @@ showTimes = () => {
     result += i + ' '
   }
   return result;
+}
+
+app.get('/customers', (req, res) => {
+    
+
+      connection.query('SELECT * FROM Customer ', req.params.countryCode, function (error, results, fields) {
+      if (error) throw error;
+      //console.log('The solution is: ', results); ** This displays to the page instead of console **
+      //data = results[0];
+      res.json(results);
+//       connection.end();
+    });
+
+    
+})
+
+function isValid(Username, Password){
+    const hmac = crypto.createHmac('sha256', 'poop');
+    hmac.update('password');
+    console.log(hmac.digest('hex'));
+    var client = await pool.connect()
+    var result = await client.query('SELECT * FROM account_tableshehe');
+    var results = {'results': (result) ? result.rows : null};
 }
