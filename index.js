@@ -40,7 +40,7 @@ showTimes = () => {
   return result;
 }
 
-.get('/customers', (req, res) => {
+    .get('/customers', (req, res) => {
     
 
       connection.query('SELECT * FROM Customer ', req.params.countryCode, function (error, results, fields) {
