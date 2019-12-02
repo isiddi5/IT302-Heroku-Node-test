@@ -27,10 +27,7 @@ express()
     }
   })
   .get('/times', (req, res) => res.send(showTimes()))
-  .get('/create_accoutns',)
 
-    let client = await pool.connect()
-    let result = await client.query('SELECT * FROM account_tableshehe');
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
