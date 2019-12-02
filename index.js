@@ -28,6 +28,17 @@ express()
   })
   .get('/times', (req, res) => res.send(showTimes()))
 
+    .get('/customers', (req, res) => {
+
+
+          connection.query('SELECT * FROM Customer', req.params.Customer, function (error, results, fields) {
+          if (error) throw error;
+
+          res.json(results);
+        });
+
+
+    })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
@@ -40,6 +51,6 @@ showTimes = () => {
   return result;
 }
 
-
+    
 
 
