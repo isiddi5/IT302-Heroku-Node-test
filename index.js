@@ -54,11 +54,4 @@ app.get('/customers', (req, res) => {
     
 })
 
-function isValid(Username, Password){
-    const hmac = crypto.createHmac('sha256', 'poop');
-    hmac.update('password');
-    console.log(hmac.digest('hex'));
-    var client = await pool.connect()
-    var result = await client.query('SELECT * FROM account_tableshehe');
-    var results = {'results': (result) ? result.rows : null};
-}
+
