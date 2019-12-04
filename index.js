@@ -32,7 +32,7 @@ express()
     .get('/customers', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT * FROM Customer');
+      const result = await client.query('SELECT * FROM test_table');
       const results =  (result) ? result.rows : [];
       res.json(results);
       client.release();
